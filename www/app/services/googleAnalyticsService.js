@@ -41,6 +41,16 @@
             }
         };
 
+        service.trackEvent = function(category, action, label, value) {
+            try {
+                if (plugin) {
+                    plugin.trackEvent(category, action, label, value);
+                }
+            } catch (error) {
+                console.log(error);
+            }
+        };
+
 
 
         return service;

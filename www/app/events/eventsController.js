@@ -31,7 +31,7 @@
                     templateUrl: 'app/events/viewInfo.tpl.html',
                     scope: $scope,
                     buttons: [{
-                        text: 'Ok',
+                        text: 'Close',
                         type: 'button-assertive'
                     }]
                 });
@@ -65,6 +65,7 @@
 
         $scope.deleteEvent = function (eventItem) {
            eventsService.remove(eventItem);
+           googleAnalyticsService.trackEvent('Events', 'deleteEvent',eventItem.name);
             $scope.items = eventsService.get();
 
             $scope.viewEventModal.hide();

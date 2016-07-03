@@ -5,7 +5,7 @@
         .module('countingDays')
         .controller('addEventController', AddEventController);
 
-    function AddEventController($scope, $state, eventsService, $stateParams, $ionicPopup, $ionicHistory,$cordovaCamera, $cordovaFile) {
+    function AddEventController($scope, $state, eventsService, $stateParams, $ionicPopup, $ionicHistory,$cordovaCamera, $cordovaFile,googleAnalyticsService) {
         function init() {
 
             $scope.event.date = new Date(Date.now());
@@ -86,9 +86,11 @@
                 date: $scope.event.date.toISOString(),
                 comment: $scope.event.comment,
                 image: $scope.event.image
-            }
+            };
+
 
             eventsService.addEvent(nEventItem);
+            googleAnalyticsService.trackEvent('Events', 'addEvent',nEventItem.name);
             $state.go('events');
         };
 
