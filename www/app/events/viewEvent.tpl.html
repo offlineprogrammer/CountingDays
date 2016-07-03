@@ -1,0 +1,46 @@
+<ion-modal-view>
+    <ion-nav-bar class="bar-dark">
+
+        <ion-nav-title>{{data.eventItem.name}}</ion-nav-title>
+
+        <ion-content class="has-header">
+            <div class="list card ">
+
+
+                <div class="item item-icon-left text-center">
+                    <h1> <i class="ion-ios-calendar-outline"></i> {{data.eventItem.date | date:'MM/dd/yyyy'}}</h1>
+                </div>
+
+                <div class="item item-icon-left text-center" ng-show="(data.eventItem.date | date:'MM/dd/yyyy'| amDifference : null : 'days') > 0">
+                    <h1>
+                        <i class="ion-ios-stopwatch-outline"></i> {{data.eventItem.date | date:'MM/dd/yyyy'| amDifference
+                        : null : 'days'}} days left </h1>
+                </div>
+
+                <div class="item item-icon-left text-center" ng-show="(data.eventItem.date | date:'MM/dd/yyyy'| amDifference : null : 'days') <= 0">
+                    <h1>
+                        <i class="ion-ios-stopwatch-outline"></i> {{data.eventItem.date | date:'MM/dd/yyyy'| amDifference
+                        : null : 'days'}} days ago </h1>
+                </div>
+
+                <div class="item item-image">
+                   <img ng-src="{{ data.eventItem.image }}">
+                </div>
+
+                <div class="item"  >
+
+                 <h2>  {{data.eventItem.comment}} </h2>
+                   
+                </div>
+
+
+            </div>
+            
+            <div class="addEventbutton button-bar ">
+                <button class="button icon-left ion-ios-close-outline button-positive button-balanced button-block button-bold
+                    " ng-click="hideEvent() ">Close</button>
+                <button class="button icon-left ion-ios-trash-outline button-positive button-assertive button-block button-bold
+                    " ng-click="deleteEvent(data.eventItem) ">Delete</button>
+            </div>
+        </ion-content>
+</ion-modal-view>
