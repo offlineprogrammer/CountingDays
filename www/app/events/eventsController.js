@@ -5,7 +5,7 @@
         .module('countingDays')
         .controller('eventsController', EventsController);
 
-    function EventsController($scope, $state, eventsService, $stateParams, $ionicPopup, $ionicHistory,$ionicModal) {
+    function EventsController($scope, $state, eventsService, $stateParams, $ionicPopup, $ionicHistory,$ionicModal,googleAnalyticsService) {
         $ionicModal.fromTemplateUrl('app/events/viewEvent.tpl.html', {
             scope: $scope
         }).then(function (modal) {
@@ -24,6 +24,7 @@
         };
 
         $scope.showInfo = function () {
+            googleAnalyticsService.trackView('showInfo');
             var prompt = $ionicPopup.show({
                     title: 'CountingDays',
                     cssClass: 'popup-autowidth',
@@ -44,6 +45,7 @@
         };
 
         $scope.showEvent = function (eventItem) {
+            googleAnalyticsService.trackView('showEvent');
              $scope.viewEventModal.scope.data = {
                     eventItem: eventItem
                    
