@@ -10,6 +10,22 @@
 
 }
 
+.popup-head {
+  background-color : #363636;
+   color: #FFFFFF;
+}
+
+.popup {
+   box-shadow: 0 0 25px green;
+}
+
+
+.popup-title {
+   
+    
+    color: white;
+}
+
 .event-row {
 
      box-shadow: 0 0 5px black;

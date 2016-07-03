@@ -25,13 +25,13 @@
 
         $scope.showInfo = function () {
             var prompt = $ionicPopup.show({
-                    title: 'Info',
+                    title: 'CountingDays',
                     cssClass: 'popup-autowidth',
                     templateUrl: 'app/events/viewInfo.tpl.html',
                     scope: $scope,
                     buttons: [{
                         text: 'Ok',
-                        type: 'button-positive'
+                        type: 'button-assertive'
                     }]
                 });
                 
