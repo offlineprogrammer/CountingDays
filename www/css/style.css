@@ -42,6 +42,11 @@
     width: 100%;
   }
 
+   .countingdays-input textarea {
+    font-size: 18px;
+    width: 100%;
+  }
+
 .event-name {
   font-weight: bold; }
 
