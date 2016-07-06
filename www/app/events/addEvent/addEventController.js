@@ -58,19 +58,14 @@
 
 
         function uploadPicture(options) {
-            
-
             $cordovaCamera.getPicture(options).then(function (sourcePath) {
                 var sourceDirectory = sourcePath.substring(0, sourcePath.lastIndexOf('/') + 1);
                 var sourceFileName = sourcePath.substring(sourcePath.lastIndexOf('/') + 1, sourcePath.length);
-                sourceFileName = sourceFileName.split('?')[0];
-
-                console.log("Copying from : " + sourceDirectory + sourceFileName);
-                console.log("Copying to : " + cordova.file.dataDirectory + sourceFileName);
+                sourceFileName = sourceFileName.split('?')[0];               
                 $cordovaFile.copyFile(sourceDirectory, sourceFileName, cordova.file.dataDirectory, sourceFileName).then(function (success) {
                     $scope.event.image = cordova.file.dataDirectory + sourceFileName;
                 }, function (error) {
-                    console.dir(error);
+                    console.log(error);
                 });
 
             }, function (err) {
