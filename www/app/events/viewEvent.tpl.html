@@ -4,9 +4,15 @@
         <ion-nav-title>{{data.eventItem.name}}</ion-nav-title>
 
         <ion-content class="has-header">
+            
             <div class="list card ">
 
-
+<div class="addEventbutton button-bar ">
+                <button class="button icon-left ion-ios-close-outline button-positive button-balanced  button-bold
+                    " ng-click="hideEvent() ">Close</button>
+                <button class="button icon-left ion-ios-trash-outline button-positive button-assertive  button-bold
+                    " ng-click="deleteEvent(data.eventItem) ">Delete</button>
+            </div>
                 <div class="item item-icon-left text-center">
                     <h1> <i class="ion-ios-calendar-outline"></i> {{data.eventItem.date | date:'MM/dd/yyyy'}}</h1>
                 </div>
@@ -23,24 +29,24 @@
                         : null : 'days'}} days ago </h1>
                 </div>
 
+                <h3>
+
+                <div class="item event-comment"  >
+
+                   {{data.eventItem.comment}} 
+                   
+                </div>
+                </h3>
+
                 <div class="item item-image">
                    <img ng-src="{{ data.eventItem.image }}">
                 </div>
 
-                <div class="item"  >
-
-                 <h2>  {{data.eventItem.comment}} </h2>
-                   
-                </div>
+                
 
 
             </div>
             
-            <div class="addEventbutton button-bar ">
-                <button class="button icon-left ion-ios-close-outline button-positive button-balanced button-block button-bold
-                    " ng-click="hideEvent() ">Close</button>
-                <button class="button icon-left ion-ios-trash-outline button-positive button-assertive button-block button-bold
-                    " ng-click="deleteEvent(data.eventItem) ">Delete</button>
-            </div>
+            
         </ion-content>
 </ion-modal-view>

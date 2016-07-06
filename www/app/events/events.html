@@ -12,6 +12,10 @@
          </ion-nav-buttons>
 
     <ion-content class="outer text-center">
+        
+        <div class="item item-borderless " ng-show="items.length === 0">
+                    <button class="button button-assertive button-block button-bold "  ng-click="addEvent()">Add Event</button>
+                </div>
         <ion-list>
             <ion-item class="item-card no-padding item-text-wrap item-borderless" ng-repeat="eventItem in items">
                 <div class="row row-center event-row" ng-click="showEvent(eventItem)" >
