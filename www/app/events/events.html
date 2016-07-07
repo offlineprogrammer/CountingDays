@@ -1,35 +1,55 @@
 <ion-view>
-     <ion-nav-bar class="bar-dark" align-title="center">
+    <ion-nav-bar class="bar-dark" align-title="center">
         <ion-nav-buttons side="left">
-        <button class="button button-icon icon ion-ios-information-outline" ng-click="showInfo()"></button>
+            <button class="button button-icon icon ion-ios-information-outline" ng-click="showInfo()"></button>
         </ion-nav-buttons>
 
-     <ion-nav-title>Events</ion-nav-title> 
-        
-         <ion-nav-buttons side="right">
-         <button class="button button-icon button-clear ion-ios-plus-outline"  ng-click="addEvent()"></button>
-         
-         </ion-nav-buttons>
+        <ion-nav-title>Events</ion-nav-title>
 
-    <ion-content class="outer text-center">
-        
-        <div class="item item-borderless " ng-show="items.length === 0">
-                    <button class="button button-assertive button-block button-bold "  ng-click="addEvent()">Add Event</button>
-                </div>
-        <ion-list>
-            <ion-item class="item-card no-padding item-text-wrap item-borderless" ng-repeat="eventItem in items">
-                <div class="row row-center event-row" ng-click="showEvent(eventItem)" >
-               
-                    <div class="col event-image-container">
-                        <img ng-src="{{ eventItem.image }}">
-                    </div>
-                    <div class="col col-80 ">
-                        <div class="event-name">{{ eventItem.name }}</div>
-                        <div class="order-description">{{ eventItem.comment }}</div>
-                    </div>
-               
-                </div>
+        <ion-nav-buttons side="right">
+            <button class="button button-icon button-clear ion-ios-plus-outline" ng-click="addEvent()"></button>
 
-        </ion-list>
-    </ion-content>
+        </ion-nav-buttons>
+
+
+
+        <ion-content class="outer text-center">
+
+            <div class="item item-borderless " ng-show="items.length === 0">
+                <button class="button button-assertive button-block button-bold " ng-click="addEvent()">Add Event</button>
+            </div>
+             <h3 ng-show="items.length > 0">
+                        <p class="text-center">Select event to view </p>
+                        
+                    </h3>
+            <ion-list>
+
+                <ion-item class="item-borderless no-padding" ng-repeat="eventItem in items" ng-class="{ 'selected' : isSelected($index) }"
+                    ng-click="select($index)">
+                    <div class="row row-center ">
+
+                        <div class="col event-image-container">
+                            <img ng-src="{{ eventItem.image }}">
+                        </div>
+                        <div class="col col-80 ">
+                            <p>{{eventItem.name}}</p>
+
+                            <div class="order-description">{{data.eventItem.date | date:'MM/dd/yyyy'| amDifference : null : 'days'}} days left </div>
+                        </div>
+
+                    </div>
+                    <div class="padding-bottom" ng-if="isSelected($index)">
+                        <div class="text-center">
+                            <p>{{ eventItem.comment }}</p>
+
+                        </div>
+                        <div class="button-bar">
+
+                            <a class="button button-small button-assertive" ng-click="showEvent(eventItem)">Show Info</a>
+                        </div>
+
+                    </div>
+
+            </ion-list>
+        </ion-content>
 </ion-view>

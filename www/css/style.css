@@ -20,6 +20,23 @@
 }
 
 
+ ion-item.selected {
+    box-shadow: 0 0 2px 2px green;
+    border-radius: 0 8px;
+    padding: 5px !important;
+    padding-bottom: 0 !important;
+    margin: 10px; }
+  ion-item:last-child .row.row-center {
+    padding-bottom: 0; }
+  ion-item .row.row-center {
+    padding: 0 0 10px 0; }
+    ion-item .row.row-center .col-80 {
+      padding: 0 0 0 10px; }
+      ion-item .row.row-center .col-80 p {
+        white-space: normal;
+        overflow: visible;
+        text-overflow: initial; }
+
 .popup-title {
    
     
