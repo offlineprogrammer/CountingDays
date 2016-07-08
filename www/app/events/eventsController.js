@@ -15,6 +15,7 @@
         });
 
          var selectedIndex;
+         $scope.today = new Date();
 
         function init() {
             $scope.items = eventsService.get();

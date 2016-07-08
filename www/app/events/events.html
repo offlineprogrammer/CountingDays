@@ -24,7 +24,7 @@
                     </h3>
             <ion-list>
 
-                <ion-item class="item-borderless no-padding" ng-repeat="eventItem in items" ng-class="{ 'selected' : isSelected($index) }"
+                <ion-item class="item no-padding" ng-repeat="eventItem in items" ng-class="{ 'selected' : isSelected($index) }"
                     ng-click="select($index)">
                     <div class="row row-center ">
 
@@ -34,7 +34,8 @@
                         <div class="col col-80 ">
                             <p>{{eventItem.name}}</p>
 
-                            <div class="order-description">{{data.eventItem.date | date:'MM/dd/yyyy'| amDifference : null : 'days'}} days left </div>
+                            <div ng-show="(eventItem.date | date:'MM/dd/yyyy'| amDifference : null : 'days') > 0" class="order-description">{{eventItem.date | date:'MM/dd/yyyy'| amDifference : null : 'days'}} days left </div>
+                            <div ng-show="(eventItem.date | date:'MM/dd/yyyy'| amDifference : null : 'days') <= 0" class="order-description">This event has passed.</div>
                         </div>
 
                     </div>
