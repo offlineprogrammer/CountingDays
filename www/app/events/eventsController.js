@@ -49,6 +49,7 @@
 
         $scope.showEvent = function (eventItem) {
             googleAnalyticsService.trackView('showEvent');
+            googleAnalyticsService.trackEvent('Events', 'showEvent', eventItem.name);
             $scope.viewEventModal.scope.data = {
                 eventItem: eventItem
 
