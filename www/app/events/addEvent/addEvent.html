@@ -23,6 +23,12 @@
                 </div>
 
                 <div class="item ">
+                    <button class="button  button-block" color-picker="" color-mode="name" model-mode="name" ng-model="testColors.ccm" modal-title="Choose!" color-box="{{testColors.ccm}}" named-colors="customColors">
+               {{testColors.ccm || &apos;Choose a Category&apos; }} 
+            </button>
+                </div>
+
+                <div class="item ">
                     <button class="button  button-block button-balanced button-bold " ng-click="getPhoto()">Photo Library</button>
                     <button class="button  button-block button-balanced button-bold " ng-click="takePhoto()">Take Photo or Video</button>
                 </div>

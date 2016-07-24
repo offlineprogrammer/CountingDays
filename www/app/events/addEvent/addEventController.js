@@ -1,26 +1,41 @@
-(function () {
+(function() {
     'use strict';
 
     angular
         .module('countingDays')
         .controller('addEventController', AddEventController);
 
-    function AddEventController($scope, $state, eventsService, $stateParams, $ionicPopup, $ionicHistory,$cordovaCamera, $cordovaFile,googleAnalyticsService) {
+    function AddEventController($scope, $state, eventsService, $stateParams, $ionicPopup, $ionicHistory, $cordovaCamera, $cordovaFile, googleAnalyticsService) {
         function init() {
 
             $scope.event.date = new Date(Date.now());
 
         };
 
-        $scope.goBack = function () {
+        $scope.testColors = {
+            first: null
+           
+        }
+
+        $scope.customColors = {
+            "School": "#5198E1",
+            "Life": "#C292F1",
+            "Anniversary": "#E898A2",
+            "Holiday": "#F08A3C",
+            "Others": "#F07B6B"
+           
+
+        }
+
+        $scope.goBack = function() {
             $state.go('events');
         };
 
         $scope.event = {};
 
-         $scope.getPhoto = function () {
+        $scope.getPhoto = function() {
 
-              var options = {
+            var options = {
                 quality: 50,
                 destinationType: Camera.DestinationType.FILE_URI,
                 sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
@@ -35,11 +50,11 @@
 
             uploadPicture(options);
 
-         }
+        }
 
-         $scope.takePhoto = function () {
+        $scope.takePhoto = function() {
 
-              var options = {
+            var options = {
                 quality: 50,
                 destinationType: Camera.DestinationType.FILE_URI,
                 sourceType: Camera.PictureSourceType.CAMERA,
@@ -53,30 +68,32 @@
             };
 
             uploadPicture(options);
-             
-         }
 
-
-        function uploadPicture(options) {
-            $cordovaCamera.getPicture(options).then(function (sourcePath) {
-                var sourceDirectory = sourcePath.substring(0, sourcePath.lastIndexOf('/') + 1);
-                var sourceFileName = sourcePath.substring(sourcePath.lastIndexOf('/') + 1, sourcePath.length);
-                sourceFileName = sourceFileName.split('?')[0];               
-                $cordovaFile.copyFile(sourceDirectory, sourceFileName, cordova.file.dataDirectory, sourceFileName).then(function (success) {
-                    $scope.event.image = cordova.file.dataDirectory + sourceFileName;
-                }, function (error) {
-                    console.log(error);
-                });
-
-            }, function (err) {
-                console.log(err);
-            });
         }
 
 
-        $scope.addEvent = function () {
+        function uploadPicture(options) {
+            $cordovaCamera.getPicture(options).then(function(sourcePath) {
+                var sourceDirectory = sourcePath.substring(0, sourcePath.lastIndexOf('/') + 1);
+                var sourceFileName = sourcePath.substring(sourcePath.lastIndexOf('/') + 1, sourcePath.length);
+                sourceFileName = sourceFileName.split('?')[0];
+                $cordovaFile.copyFile(sourceDirectory, sourceFileName, cordova.file.dataDirectory, sourceFileName).then(function(success) {
+                    $scope.event.image = cordova.file.dataDirectory + sourceFileName;
+                }, function(error) {
+                    console.log(error);
+                });
+
+            }, function(err) {
+                console.log(err);
+            });
+        };
+
+
+
+
+        $scope.addEvent = function() {
             var nEventItem = {
-                id : new Date(Date.now()).toISOString(),
+                id: new Date(Date.now()).toISOString(),
                 name: $scope.event.name,
                 date: $scope.event.date.toISOString(),
                 comment: $scope.event.comment,
@@ -85,10 +102,10 @@
 
 
             eventsService.addEvent(nEventItem);
-            googleAnalyticsService.trackEvent('Events', 'addEvent',nEventItem.name);
+            googleAnalyticsService.trackEvent('Events', 'addEvent', nEventItem.name);
             $state.go('events');
         };
 
         init();
     }
-} ());
+}());

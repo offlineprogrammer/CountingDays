@@ -5,7 +5,8 @@
         'ionic',
         'ngCordova',
         'angular-cache',
-        'angularMoment'        
+        'angularMoment',
+        'ionic-color-picker'        
         
     ])
         .run(function ($window,googleAnalyticsService) {
