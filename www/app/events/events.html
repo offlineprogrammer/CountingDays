@@ -6,26 +6,22 @@
 
         <ion-nav-title>Events</ion-nav-title>
 
-        <ion-nav-buttons side="right">
-            <button class="button button-icon button-clear ion-ios-plus-outline" ng-click="addEvent()"></button>
 
-        </ion-nav-buttons>
 
 
 
         <ion-content class="outer text-center">
 
             <div class="item item-borderless " ng-show="items.length === 0">
-                <button class="button button-assertive button-block button-bold " ng-click="addEvent()">Add Event</button>
+               To Add Event Tap (+)
             </div>
-             <h3 ng-show="items.length > 0">
+            <h3 ng-show="items.length > 0">
                         <p class="text-center">Select event to view </p>
                         
                     </h3>
             <ion-list>
 
-                <ion-item class="item no-padding" ng-repeat="eventItem in items" ng-class="{ 'selected' : isSelected($index) }"
-                    ng-click="select($index)">
+                <ion-item class="item no-padding" ng-repeat="eventItem in items" ng-class="{ 'selected' : isSelected($index) }" ng-click="select($index)">
                     <div class="row row-center ">
 
                         <div class="col event-image-container">
@@ -52,5 +48,9 @@
                     </div>
 
             </ion-list>
+            
         </ion-content>
+        <button class="button button-float" ng-click="addEvent()">
+        <i class="icon ion-plus"></i>
+      </button>
 </ion-view>
