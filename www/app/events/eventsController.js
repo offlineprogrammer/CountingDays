@@ -47,6 +47,7 @@
 
         };
 
+
         $scope.showEvent = function (eventItem) {
             googleAnalyticsService.trackView('showEvent');
             googleAnalyticsService.trackEvent('Events', 'showEvent', eventItem.name);
@@ -56,6 +57,16 @@
             };
 
             $scope.viewEventModal.show();
+        };
+
+        $scope.getClass = function (eventItem, index) {
+            if ($scope.isSelected(index)) {
+                 return eventItem.category + ' selected';
+            } else {
+                return eventItem.category ;
+            }
+
+            
         };
 
         $scope.hideEvent = function () {

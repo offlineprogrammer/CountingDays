@@ -21,8 +21,8 @@
                     </h3>
             <ion-list>
 
-                <ion-item class="item no-padding" ng-repeat="eventItem in items" ng-class="{ 'selected' : isSelected($index) }" ng-click="select($index)">
-                    <div class="row row-center ">
+                <ion-item class="item no-padding" ng-repeat="eventItem in items" ng-class="getClass(eventItem, $index)"  ng-click="select($index)">
+                    <div class="row row-center" >
 
                         <div class="col event-image-container">
                             <img ng-src="{{ eventItem.image }}">
