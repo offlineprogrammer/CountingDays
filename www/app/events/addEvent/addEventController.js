@@ -12,7 +12,7 @@
 
         };
 
-        $scope.testColors = {
+        $scope.eventColors = {
             first: null
            
         }
@@ -97,7 +97,8 @@
                 name: $scope.event.name,
                 date: $scope.event.date.toISOString(),
                 comment: $scope.event.comment,
-                image: $scope.event.image
+                image: $scope.event.image,
+                category: $scope.eventColors.ccm
             };
 
 
