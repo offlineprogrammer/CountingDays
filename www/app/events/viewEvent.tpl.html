@@ -4,22 +4,25 @@
         <ion-nav-title>{{data.eventItem.name}}</ion-nav-title>
 
         <ion-content class="has-header">
-            
-            <div class="list card ">
 
-<div class="addEventbutton button-bar ">
-                <button class="button icon-left ion-ios-close-outline button-positive button-balanced  button-bold
+            <div class="list card ">
+                <div class="item text-center" ng-class="getViewItemClass(data.eventItem)">
+                    <h2>  {{data.eventItem.category}} </h2>
+                </div>
+
+                <div class="addEventbutton button-bar ">
+                    <button class="button icon-left ion-ios-close-outline button-positive button-balanced  button-bold
                     " ng-click="hideEvent() ">Close</button>
-                <button class="button icon-left ion-ios-trash-outline button-positive button-assertive  button-bold
+                    <button class="button icon-left ion-ios-trash-outline button-positive button-assertive  button-bold
                     " ng-click="deleteEvent(data.eventItem) ">Delete</button>
-            </div>
+                </div>
+
+
                 <div class="item item-icon-left text-center">
                     <h1> <i class="ion-ios-calendar-outline"></i> {{data.eventItem.date | date:'MM/dd/yyyy'}}</h1>
                 </div>
 
-                <div class="item item-icon-left text-center" ng-class="getViewItemClass(data.eventItem)">
-                    <h1>  {{data.eventItem.category}} </h1>
-                </div>
+
 
                 <div class="item item-icon-left text-center" ng-show="(data.eventItem.date | date:'MM/dd/yyyy'| amDifference : null : 'days') > 0">
                     <h1>
@@ -42,14 +45,14 @@
                 </h3>
 
                 <div class="item item-image">
-                   <img ng-src="{{ data.eventItem.image }}">
+                    <img ng-src="{{ data.eventItem.image }}">
                 </div>
 
-                
+
 
 
             </div>
-            
-            
+
+
         </ion-content>
 </ion-modal-view>

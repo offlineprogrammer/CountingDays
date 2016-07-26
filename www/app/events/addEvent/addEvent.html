@@ -10,7 +10,7 @@
         <ion-content class="outer text-center">
             <div class="list card">
                 <div class="item ">
-                    <button class="button button-assertive button-block button-bold " ng-disabled="event.name === undefined" ng-click="addEvent()">Save</button>
+                    <button class="button button-assertive button-block button-bold " ng-disabled="event.name === undefined || eventColors.ccm === undefined " ng-click="addEvent()">Save</button>
                 </div>
                 <div class="item countingdays-input  ">
                     <input type="text" placeholder="Event Name" ng-model="event.name">
