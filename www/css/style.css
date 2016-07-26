@@ -42,23 +42,23 @@
   background: darken(#ef473a, 10%) !important;
 }
 
-ion-item.School {
+ion-item.School, .School {
   background-color: #5198E1 !important;
 }
 
-ion-item.Life {
+ion-item.Life,.Life {
   background-color: #C292F1 !important;
 }
 
-ion-item.Anniversary {
+ion-item.Anniversary, .Anniversary {
   background-color: #E898A2 !important;
 }
 
-ion-item.Holiday {
+ion-item.Holiday, .Holiday {
   background-color: #F08A3C !important;
 }
 
-ion-item.Others {
+ion-item.Others, .Others {
   background-color: #F07B6B !important;
 }
 

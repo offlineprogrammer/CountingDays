@@ -17,6 +17,10 @@
                     <h1> <i class="ion-ios-calendar-outline"></i> {{data.eventItem.date | date:'MM/dd/yyyy'}}</h1>
                 </div>
 
+                <div class="item item-icon-left text-center" ng-class="getViewItemClass(data.eventItem)">
+                    <h1>  {{data.eventItem.category}} </h1>
+                </div>
+
                 <div class="item item-icon-left text-center" ng-show="(data.eventItem.date | date:'MM/dd/yyyy'| amDifference : null : 'days') > 0">
                     <h1>
                         <i class="ion-ios-stopwatch-outline"></i> {{data.eventItem.date | date:'MM/dd/yyyy'| amDifference

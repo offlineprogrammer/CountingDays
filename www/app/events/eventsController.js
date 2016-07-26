@@ -69,6 +69,15 @@
             
         };
 
+        $scope.getViewItemClass = function (eventItem) {
+            if (eventItem){
+                return eventItem.category ;
+            }
+           
+
+            
+        };
+
         $scope.hideEvent = function () {
             var data = $scope.viewEventModal.scope.data;
 
