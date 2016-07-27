@@ -27,19 +27,22 @@
                         <div class="col event-image-container">
                             <img ng-src="{{ eventItem.image }}">
                         </div>
-                        <div class="col col-80 ">
-                            <p>{{eventItem.name}}</p>
+                        <div class="col col-60 event-name">
+                            {{eventItem.name}}
 
-                            <div ng-show="(eventItem.date | date:'MM/dd/yyyy'| amDifference : null : 'days') > 0" class="order-description">{{eventItem.date | date:'MM/dd/yyyy'| amDifference : null : 'days'}} days left </div>
-                            <div ng-show="(eventItem.date | date:'MM/dd/yyyy'| amDifference : null : 'days') <= 0" class="order-description">This event has passed.</div>
+                            
+                        </div>
+
+                        <div class="col ">
+                           
+
+                            <div ng-show="(eventItem.date | date:'MM/dd/yyyy'| amDifference : null : 'days') > 0" class="event-date">{{eventItem.date | date:'MM/dd/yyyy'| amDifference : null : 'days'}}D </div>
+                            <div ng-show="(eventItem.date | date:'MM/dd/yyyy'| amDifference : null : 'days') <= 0" class="event-date"><i class="ion-alert-circled"></i></div>
                         </div>
 
                     </div>
                     <div class="padding-bottom" ng-if="isSelected($index)">
-                        <div class="text-center">
-                            <p>{{ eventItem.comment }}</p>
-
-                        </div>
+                       
                         <div class="button-bar">
 
                             <a class="button button-small button-assertive" ng-click="showEvent(eventItem)">Show Info</a>

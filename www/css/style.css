@@ -28,6 +28,13 @@ font-family: 'Open Sans', sans-serif !important;
   background-color: #363636;
 }
 
+.event-name {
+  font-weight: bold;
+   color: #FFFFFF;
+   font-size: 20px;
+}
+
+
 .AppTitle {
   color: #FFFFFF;
   font-size: 36px;
@@ -64,6 +71,15 @@ font-family: 'Open Sans', sans-serif !important;
   transform: translate3d(0, -1px, 0) !important;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4) !important;
   background: darken(#ef473a, 10%) !important;
+}
+
+.event-date {
+  font-size: 36px;
+  color: white;
+}
+
+ion-item {
+  color: white;
 }
 
 ion-item.School, .School {
@@ -145,9 +161,6 @@ ion-item .row.row-center .col-80 p {
   width: 100%;
 }
 
-.event-name {
-  font-weight: bold;
-}
 
 .event-image-container {
   display: -webkit-box;
