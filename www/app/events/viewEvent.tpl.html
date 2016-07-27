@@ -29,9 +29,14 @@
                         <i class="ion-ios-stopwatch-outline"></i> {{data.datedifference}} days left </h1>
                 </div>
 
-                <div class="item item-icon-left text-center" ng-show="data.datedifference <= 0">
+                <div class="item item-icon-left text-center" ng-show="data.datedifference < 0">
                     <h1>
                         <i class="ion-ios-stopwatch-outline"></i> {{ data.datedifference}} days ago </h1>
+                </div>
+
+                <div class="item item-icon-left text-center" ng-show="data.datedifference == 0">
+                    <h1>
+                        <i class="ion-happy-outline"></i> Today </h1>
                 </div>
 
                 <h3>

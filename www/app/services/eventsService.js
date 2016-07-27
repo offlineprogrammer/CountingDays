@@ -22,6 +22,12 @@
         
        service.get = function () {
             var jsonObject = angular.fromJson(cache.get(CACHE_KEY)) || [];
+            _.each(jsonObject, function (cdEvent) {
+                 var a = moment(moment(cdEvent.date).format('YYYY-MM-DD '));
+             var b = moment(moment(new Date(Date.now())).format('YYYY-MM-DD '));
+             var datedifference = a.diff(b, 'days');
+                cdEvent.datedifference = datedifference;
+            });
             return _.compact(angular.copy(jsonObject));
         };
 

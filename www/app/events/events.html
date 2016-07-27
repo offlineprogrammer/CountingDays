@@ -36,8 +36,9 @@
                         <div class="col ">
                            
 
-                            <div ng-show="(eventItem.date | date:'MM/dd/yyyy'| amDifference : null : 'days') > 0" class="event-date">{{eventItem.date | date:'MM/dd/yyyy'| amDifference : null : 'days'}}D </div>
-                            <div ng-show="(eventItem.date | date:'MM/dd/yyyy'| amDifference : null : 'days') <= 0" class="event-date"><i class="ion-alert-circled"></i></div>
+                            <div ng-show="eventItem.datedifference > 0" class="event-date">{{eventItem.datedifference}}D </div>
+                            <div ng-show="eventItem.datedifference < 0" class="event-date"><i class="ion-alert-circled"></i></div>
+                            <div ng-show="eventItem.datedifference == 0" class="event-date"><i class="ion-happy-outline"></i></div>
                         </div>
 
                     </div>
