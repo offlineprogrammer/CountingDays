@@ -51,8 +51,13 @@
         $scope.showEvent = function (eventItem) {
             googleAnalyticsService.trackView('showEvent');
             googleAnalyticsService.trackEvent('Events', 'showEvent', eventItem.name);
+          //  var daysDiff = eventItem.diff(eventItem.date, 'days');
+            var a = moment(moment(eventItem.date).format('YYYY-MM-DD '));
+             var b = moment(moment(new Date(Date.now())).format('YYYY-MM-DD '));
+             var datedifference = a.diff(b, 'days');
             $scope.viewEventModal.scope.data = {
-                eventItem: eventItem
+                eventItem: eventItem,
+                datedifference: datedifference
 
             };
 
